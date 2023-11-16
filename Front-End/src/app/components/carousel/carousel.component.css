@@ -1,0 +1,170 @@
+.content{
+    height: 520px;
+    width: 935px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+}
+
+.bar{
+    width: 70px;
+    height: 17px;
+    border: 2px solid #fff;
+    margin: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.bar:hover{
+    background-color: #fff;
+}
+
+input{
+    display: none;
+}
+
+.slides{
+    display: flex;
+    width: 500%;
+    height: 100%;
+    animation: slideAuto 20s infinite; /* Controla a duração e a repetição da animação */
+}
+
+.slide{
+    width: 20%;
+    transition: .6s;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+
+#slide1:checked ~ .s1 {
+    margin-left: 0;
+}
+
+#slide2:checked ~ .s1 {
+    margin-left: -20%;
+}
+
+#slide3:checked ~ .s1 {
+    margin-left: -40%;
+}
+
+#slide4:checked ~ .s1 {
+    margin-left: -60%;
+}
+
+#slide5:checked ~ .s1 {
+    margin-left: -80%;
+}
+
+
+
+
+@media only screen and (max-width: 1000px) {
+    .content {
+        height: 320px;
+        width: 635px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .content {
+        height: 320px;
+        width: 435px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .content {
+        height: 320px;
+        width: 335px;
+    }
+
+    .bar{
+        width: 50px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .content {
+        height: 220px;
+        width: 300px;
+    }
+
+    .bar{
+        width: 40px;
+    }
+}
+
+
+@keyframes slide {
+    0%, 100% {
+        margin-left: 0;
+    }
+    20% {
+        margin-left: -100%;
+    }
+    40% {
+        margin-left: -200%;
+    }
+    60% {
+        margin-left: -300%;
+    }
+    80% {
+        margin-left: -400%;
+    }
+}
+
+.slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    animation: slide 30s infinite;
+}
+
+/* Adicione uma regra para definir a largura dos controles de input */
+input[type="radio"] {
+    display: none;
+}
+
+.bar {
+    width: 70px;
+    height: 17px;
+    border: 2px solid #fff;
+    margin: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.bar:hover {
+    background-color: #fff;
+}
+
+input:checked + .slides .s1 {
+    animation-play-state: running;
+}
+
+input:checked ~ .bar {
+    background-color: #fff;
+}
+
+/* Adicione uma regra para pausar a animação quando o controle é clicado */
+input:checked ~ .slides {
+    animation-play-state: paused;
+}
